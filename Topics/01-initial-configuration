@@ -1,1 +1,74 @@
 
+# 01. Initial Configuration & Tenant Settings
+
+Setting up a Microsoft Entra ID tenant correctly from day one is critical. This section covers the fundamental identity infrastructure, setting up custom domains, delegating administrative power efficiently, and configuring basic security defaults.
+
+---
+
+##  1. Entra ID Tenant Fundamentals
+
+When an organization signs up for a Microsoft cloud service (like Microsoft 365 or Azure), they are given a **Tenant**. This is a dedicated, isolated instance of Microsoft Entra ID.
+
+*   **The Default Domain:** Every new tenant comes with a fallback domain ending in `.onmicrosoft.com` (e.g., `contoso.onmicrosoft.com`). 
+*   **The Catch:** You cannot rename or delete the default `.onmicrosoft.com` domain. It acts as a permanent routing mechanism behind the scenes.
+*   **Tenant ID vs. Primary Domain:** The Tenant ID is a unique globally unique identifier (GUID) used by APIs and applications. The Primary Domain is the default suffix given to new users if you don't specify one.
+
+---
+
+##  2. Custom Domain Configuration
+
+No corporate user wants an email address ending in `.onmicrosoft.com`. To use a custom domain (like `contoso.com`), you have to prove to Microsoft that you actually own it.
+
+### The Verification Process
+1.  **Add the domain** in the Microsoft Entra admin center.
+2.  **Generate a DNS record:** Entra ID will give you a **TXT record** (or an MX record) with a unique value.
+3.  **Update your DNS Zone:** Go to your domain registrar (GoDaddy, Namecheap, Cloudflare, etc.) and add that TXT record.
+4.  **Verify:** Click verify in Entra ID. Once verified, you can change your users' User Principal Names (UPNs) to use the new domain.
+
+>  **Real-World Gotcha:** You cannot delete a custom domain from your tenant if it is currently assigned to *any* user, group, or application. You must reassign those objects to the default `.onmicrosoft.com` domain first before Entra ID will let you remove the custom domain.
+
+---
+
+##  3. Company Branding
+
+Company Branding isn't just about making the login page look pretty; it's a vital security barrier against **phishing attacks**. If your users are trained to only enter their credentials on a page that features your company's custom logo, background image, and specific text, they are much less likely to fall for a generic fake login page.
+
+### Key Branding Elements
+*   **Sign-in page background:** A large image displayed behind the login box. Keep the file size small so it loads instantly.
+*   **Banner logo:** A small logo that appears inside the login box itself.
+*   **Username hint:** Text that appears in the input field to help users know what format to type (e.g., `someone@example.com`).
+*   **Sign-in page text:** A footer area where you can add support links or legal disclaimers.
+
+---
+
+##  4. Role-Based Access Control (RBAC) & Administrative Units
+
+Giving everyone "Global Admin" access is an absolute security nightmare. Microsoft Entra ID relies on the **Principle of Least Privilege**.
+
+### Key Built-in Roles to Know
+*   **Global Administrator:** Has unrestricted access to all administrative features in the tenant. Guard this role with your life. Limit this to fewer than 5 people.
+*   **User Administrator:** Can create and delete users, manage groups, and reset passwords for non-admin users.
+*   **Helpdesk Administrator:** Can reset passwords for non-administrators and certain limited roles.
+*   **Billing Administrator:** Makes purchases, manages subscriptions, and monitors ticket health.
+
+### 🏢 Administrative Units (AUs)
+Think of Administrative Units as **OUs (Organizational Units) for the cloud**. 
+
+If you have a global company, you don't want the IT admin in France accidentally deleting a user in Canada. By using Administrative Units, you can restrict administrative permissions to a specific subset of users or devices.
+
+*   *Example:* You create an AU called "France Branch", add all French users to it, and assign the local French IT lead the "User Administrator" role **scoped only to that AU**. They can now manage French users, but have zero power over users in the rest of the company.
+
+---
+
+##  5. Security Defaults vs. Conditional Access
+
+Every tenant needs a baseline level of security right out of the box. Microsoft provides this via **Security Defaults**.
+
+| Feature | Security Defaults | Conditional Access (CA) |
+| :--- | :--- | :--- |
+| **Licensing** | Free / Included with all tiers | Requires Entra ID Premium P1/P2 |
+| **Flexibility** | All-or-nothing (Turned on or off) | Highly customizable policies |
+| **MFA Enforcement** | Enforces MFA for *all* users | Enforces MFA based on conditions (Location, Device, Risk) |
+| **Legacy Auth** | Blocks legacy protocols completely | Can selectively block or allow |
+
+> 🚨 **Exam Alert:** You **cannot** use Security Defaults and Conditional Access policies at the same time. If you want to write custom Conditional Access rules, you must turn off Security Defaults first.
