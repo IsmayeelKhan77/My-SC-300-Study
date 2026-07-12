@@ -1,4 +1,4 @@
-# 🛡️ My SC-300: Microsoft Identity & Access Administrator Notes
+# My SC-300: Microsoft Identity & Access Administrator Notes
 
 Welcome! This repository is my personal, no-nonsense study guide for the **SC-300 exam**. Instead of overwhelming corporate jargon, I’ve broken down Microsoft Entra ID concepts into practical, detailed notes that read like they were written by a peer, not a textbook.
 
@@ -6,7 +6,7 @@ Whether you are studying for the exam or just trying to configure Entra ID witho
 
 ---
 
-## 🗺️ What's Inside?
+## What's Inside?
 
 *   **[01. Initial Configuration](./01-initial-configuration/)**
     *   Setting up tenants, custom company branding, and primary domains.
@@ -29,9 +29,9 @@ Whether you are studying for the exam or just trying to configure Entra ID witho
 
 ## 💡 Quick Tips for Navigating These Notes
 
-> 🔑 **The Principle of Least Privilege:** If there is one recurring theme in this exam, it’s this—never give a user more access than they absolutely need. If a user only needs to reset passwords, give them the *Helpdesk Administrator* role, not *Global Administrator*.
+>  **The Principle of Least Privilege:** If there is one recurring theme in this exam, it’s this—never give a user more access than they absolutely need. If a user only needs to reset passwords, give them the *Helpdesk Administrator* role, not *Global Administrator*.
 
-> 🌐 **PHS is King for Backup:** Even if an organization insists on using Pass-Through Authentication (PTA) or Federation for compliance, Microsoft still recommends syncing password hashes as a disaster recovery backup. If the on-premises servers go dark, PHS can keep your cloud users working.
+>  **PHS is King for Backup:** Even if an organization insists on using Pass-Through Authentication (PTA) or Federation for compliance, Microsoft still recommends syncing password hashes as a disaster recovery backup. If the on-premises servers go dark, PHS can keep your cloud users working.
 
 ---
 
