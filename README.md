@@ -15,7 +15,7 @@ Whether you are studying for the exam or just trying to configure Entra ID witho
 *   **[02. Identity Management](./02-identity-management/)** 
     *   Managing Cloud vs. Synced vs. Guest user types. 
     *   Dynamic Groups (automating access based on department or title). 
-    *   Device registration breakdowns (Entra Registered vs. Entra Joined vs. Hybrid). 
+    *   Device registration breakdowns (Entra Registered vs. Entra Joined vs. Hybrid).  
 *   **[03. External Identities](./03-external-identities/)** 
     *   B2B collaboration and the guest user redemption flow.
     *   Setting up Google and Facebook as external Social Identity Providers.
