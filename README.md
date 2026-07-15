@@ -12,7 +12,7 @@ Whether you are studying for the exam or just trying to configure Entra ID witho
     *   Setting up tenants, custom company branding, and primary domains.  
     *   Understanding Global vs. User vs. Billing Administrator roles. 
     *   Delegating control using Administrative Units (OUs for the cloud).
-*   **[02. Identity Management](./02-identity-management/)**
+*   **[02. Identity Management](./02-identity-management/)** 
     *   Managing Cloud vs. Synced vs. Guest user types. 
     *   Dynamic Groups (automating access based on department or title). 
     *   Device registration breakdowns (Entra Registered vs. Entra Joined vs. Hybrid).
