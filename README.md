@@ -10,7 +10,7 @@ Whether you are studying for the exam or just trying to configure Entra ID witho
 
 *   **[01. Initial Configuration](./01-initial-configuration/)**
     *   Setting up tenants, custom company branding, and primary domains.  
-    *   Understanding Global vs. User vs. Billing Administrator roles.
+    *   Understanding Global vs. User vs. Billing Administrator roles. 
     *   Delegating control using Administrative Units (OUs for the cloud).
 *   **[02. Identity Management](./02-identity-management/)**
     *   Managing Cloud vs. Synced vs. Guest user types. 
