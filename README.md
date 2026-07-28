@@ -29,7 +29,7 @@ Whether you are studying for the exam or just trying to configure Entra ID witho
 
 ## 💡 Quick Tips for Navigating These Notes
 
->  **The Principle of Least Privilege:** If there is one recurring theme in this exam, it’s this—never give a user more access than they absolutely need. If a user only needs to reset passwords, give them the *Helpdesk Administrator* role, not *Global Administrator*.
+>  **The Principle of Least Privilege:** If there is one recurring theme in this exam, it’s this, never give a user more access than they absolutely need. If a user only needs to reset passwords, give them the *Helpdesk Administrator* role, not *Global Administrator*.
 
 >  **PHS is King for Backup:** Even if an organization insists on using Pass-Through Authentication (PTA) or Federation for compliance, Microsoft still recommends syncing password hashes as a disaster recovery backup. If the on-premises servers go dark, PHS can keep your cloud users working.
 
